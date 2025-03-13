@@ -13,3 +13,6 @@ localhost:8000/  or 127.0.0.1:8000/
 
 ### API
 localhost:8000/graphql  or 127.0.0.1:8000/graphql
+## Or You can Also Use Docker & Docker-compose
+docker-compose up -d --build
+
