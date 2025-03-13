@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+    <title>image List</title>
+{% endblock title %}
+
+{% block content %}
+    <h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Image List</h1>
+
+   <div class="row row-cols-1 row-cols-md-3 g-3">
+  {% for image in images %}
+      <div class="col">
+        <div class="card">
+          <img src="{{ image.image.url }}" class="card-img-top" alt=""/>
+          <div class="card-body">
+            <h5 class="card-title">{{ image.title }}</h5>
+
+            <a type="button" href="{% url 'image_detail' image.pk %}" height="270" width = "600px" class="btn btn-sm btn-outline-primary" >detail</a>
+            <a type="button" class="btn btn-sm btn-outline-danger" href="{% url 'image_delete' image.pk %}">Delete</a>
+
+          </div>
+        </div>
+      </div>
+ {% endfor %}
+      </div>
+
+
+
+{% endblock content %}

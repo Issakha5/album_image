@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+    <title>image List</title>
+{% endblock title %}
+
+{% block content %}
+ <h1>{{ image.title }}</h1>
+      <img src="{{ image.image.url }}" alt="{{ image.title }}">
+       <p>Created at: {{ image.created_at }}</p>
+<div class="row">
+<div class="col-auto">
+
+       <a class="btn btn-sm btn-outline-success" href="{% url 'image_update' image.pk %}">Edit</a>
+</div>
+      <div class="col-auto">
+        <form action="{% url 'image_delete' image.pk %}" method="POST">
+        {% csrf_token %}
+
+
+        <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+
+      </form>
+        </div>
+
+        <div class="col-auto">
+
+      <a class="btn btn-sm btn-outline-primary" href="{% url 'image_list' %}">Back to List</a>
+        </div>
+  </div>
+{% endblock content %}
